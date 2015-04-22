@@ -103,7 +103,7 @@ case $opt in
 		echo ""
 		echo "Running command: youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --yes-playlist --playlist-start $START --playlist-end $END -o \"$HOME/Downloads/YouTube/%(uploader)s/%(upload_date)s_%(title)s.%(ext)s\" $URL"
 		echo ""
-		youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --yes-playlist --playlist-start $START --playlist-end $END -o "/home/$user/Videos/YouTube/%(uploader)s/%(title)s-%(id)s.%(ext)s" $URL
+		youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --yes-playlist --playlist-start $START --playlist-end $END -o "$HOME/Downloads/YouTube/%(uploader)s/%(upload_date)s_%(title)s.%(ext)s\" $URL
 		echo ""
 		echo "################################################################################"
 		echo "#                                                                              #"
@@ -119,9 +119,9 @@ case $opt in
 		;;
 		[Ww]* )
 		echo ""
-		echo "Running command: youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --yes-playlist -o \"/home/$user/Videos/YouTube/%(uploader)s/%(title)s-%(id)s.%(ext)s\" $URL"
+		echo "Running command: youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --yes-playlist -o \"$HOME/Downloads/YouTube/%(uploader)s/%(upload_date)s_%(title)s.%(ext)s\" $URL"
 		echo ""
-		youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --yes-playlist -o "/home/$user/Videos/YouTube/%(uploader)s/%(title)s-%(id)s.%(ext)s" $URL
+		youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --yes-playlist -o "$HOME/Downloads/YouTube/%(uploader)s/%(upload_date)s_%(title)s.%(ext)s\" $URL
 		echo ""
 		echo "################################################################################"
 		echo "#                                                                              #"
@@ -154,9 +154,9 @@ case $opt in
 	echo -n "> "
 	read URL
 	echo ""
-	echo "Running command: youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --no-playlist -o \"/home/$user/Videos/YouTube/%(uploader)s/%(title)s-%(id)s.%(ext)s\" $URL"
+	echo "Running command: youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --no-playlist -o \"$HOME/Downloads/YouTube/%(uploader)s/%(upload_date)s_%(title)s.%(ext)s\" $URL"
 	echo ""
-	youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --no-playlist -o "/home/$user/Videos/YouTube/%(uploader)s/%(title)s-%(id)s.%(ext)s" $URL
+	youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --no-playlist -o "$HOME/Downloads/YouTube/%(uploader)s/%(upload_date)s_%(title)s.%(ext)s\" $URL
 	echo ""
 	echo "################################################################################"
 	echo "#                                                                              #"
