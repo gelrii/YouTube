@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Depends upon:
+#  youtube-dl
+#  aria2c
+
 # --skip-download == skips download
 # -s == simulate
 # --playlist-start NUMBER == defines start of selection
@@ -8,8 +12,6 @@
 # --no-playlist == does not download playlist if URL contains playlist
 # --yes-playlist == does download playlist if URL contains playlist
 # -f best == downloads the best quality video and audio
-
-user=`whoami`
 
 clear
 echo "################################################################################"
@@ -99,9 +101,9 @@ case $opt in
 		echo -n "> "
 		read END
 		echo ""
-		echo "Running script : youtube-dl -f best --yes-playlist --playlist-start $START --playlist-end $END -o \"/home/$user/Videos/YouTube/%(uploader)s/%(title)s-%(id)s.%(ext)s\" $URL"
+		echo "Running command: youtube-dl -f best --yes-playlist --playlist-start $START --playlist-end $END -o \"$HOME/Downloads/YouTube/%(uploader)s/%(upload_date)s_%(title)s.%(ext)s\" $URL"
 		echo ""
-		youtube-dl -f best --yes-playlist --playlist-start $START --playlist-end $END -o "/home/$user/Videos/YouTube/%(uploader)s/%(title)s-%(id)s.%(ext)s" $URL
+		youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --yes-playlist --playlist-start $START --playlist-end $END -o "/home/$user/Videos/YouTube/%(uploader)s/%(title)s-%(id)s.%(ext)s" $URL
 		echo ""
 		echo "################################################################################"
 		echo "#                                                                              #"
@@ -117,7 +119,7 @@ case $opt in
 		;;
 		[Ww]* )
 		echo ""
-		echo "Running script : youtube-dl -f best --yes-playlist -o \"/home/$user/Videos/YouTube/%(uploader)s/%(title)s-%(id)s.%(ext)s\" $URL"
+		echo "Running script: youtube-dl -f best --yes-playlist -o \"/home/$user/Videos/YouTube/%(uploader)s/%(title)s-%(id)s.%(ext)s\" $URL"
 		echo ""
 		youtube-dl -f best --yes-playlist -o "/home/$user/Videos/YouTube/%(uploader)s/%(title)s-%(id)s.%(ext)s" $URL
 		echo ""
