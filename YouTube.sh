@@ -103,7 +103,7 @@ case $opt in
 		echo ""
 		echo "Running command: youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --yes-playlist --playlist-start $START --playlist-end $END -o \"$HOME/Videos/YouTube/%(uploader)s/%(upload_date)s_%(title)s.%(ext)s\" $URL"
 		echo ""
-		echo "The videos will be downloaded to \"$HOME/Videos/YouTube/(uploader)"
+		echo "The videos will be downloaded to $HOME/Videos/YouTube/(uploader)"
 		echo ""
 		youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --yes-playlist --playlist-start $START --playlist-end $END -o "$HOME/Videos/YouTube/%(uploader)s/%(upload_date)s_%(title)s.%(ext)s" $URL
 		echo ""
@@ -123,7 +123,7 @@ case $opt in
 		echo ""
 		echo "Running command: youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --yes-playlist -o \"$HOME/Videos/YouTube/%(uploader)s/%(upload_date)s_%(title)s.%(ext)s\" $URL"
 		echo ""
-		echo "The videos will be downloaded to \"$HOME/Videos/YouTube/(uploader)"
+		echo "The videos will be downloaded to $HOME/Videos/YouTube/(uploader)"
 		echo ""
 		youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --yes-playlist -o "$HOME/Videos/YouTube/%(uploader)s/%(upload_date)s_%(title)s.%(ext)s" $URL
 		echo ""
@@ -160,7 +160,7 @@ case $opt in
 	echo ""
 	echo "Running command: youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --no-playlist -o \"$HOME/Videos/YouTube/%(uploader)s/%(upload_date)s_%(title)s.%(ext)s\" $URL"
 	echo ""
-	echo "The video will be downloaded to \"$HOME/Videos/YouTube/(uploader)"
+	echo "The video will be downloaded to $HOME/Videos/YouTube/(uploader)"
 	echo ""
 	youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --no-playlist -o "$HOME/Videos/YouTube/%(uploader)s/%(upload_date)s_%(title)s.%(ext)s" $URL
 	echo ""
