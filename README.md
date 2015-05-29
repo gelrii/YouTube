@@ -10,4 +10,4 @@ The above command uses curl, paste this into a terminal to execute it.
 This script will download the video(s) into /home/user/Videos/uploader/ using the default file name for youtube-dl. It will also attempt to download the best video and audio qualities for the video(s). If you wish to change the default download location it is easy to do so by editing the relevant section of the script
 
 Requires both youtube-dl and aria2c to use, these can be installed using:
-<pre>sudo yum install youtube-dl aria2</pre>
+<pre>sudo dnf install youtube-dl aria2</pre>
