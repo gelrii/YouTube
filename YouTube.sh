@@ -11,8 +11,8 @@
 #####     Download Location     #####
 #######                       #######
 
-LOCATION=$HOME/Videos/YouTube/%\(uploader\)s/%\(upload_date\)s_%\(title\)s.%\(ext\)s   # location used for youtube-dl
-LOCATE=$HOME/Videos/YouTube/\(uploader\)/                                              # location told to user via echo
+LOCATE=$HOME/Videos/YouTube/%\(uploader\)s/%\(upload_date\)s_%\(title\)s.%\(ext\)s     # Default download location
+LOCATION=$HOME/Videos/YouTube/%\(uploader\)s/%\(upload_date\)s_%\(title\)s.%\(ext\)s   # User changeable download location
 
 #######                                    #######
 #####     Usefull youtube-dl ammendments     #####
@@ -72,7 +72,7 @@ echo "#                                                                         
 echo "#                                                                              #"
 BOTTOM
 echo ""
-echo "Download location = $LOCATE"
+echo "Download location = $LOCATION"
 echo ""
 exit
 }
@@ -104,7 +104,7 @@ DOWNLOADING
 echo "Start = $START"
 echo "End = $END"
 echo ""
-echo "Download location = $LOCATE"
+echo "Download location = $LOCATION"
 echo ""
 youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --yes-playlist --playlist-start $START --playlist-end $END -o "$LOCATION" $URL
 COMPLETE
@@ -112,7 +112,7 @@ COMPLETE
 
 Whole() {
 DOWNLOADING
-echo "Download location = $LOCATE"
+echo "Download location = $LOCATION"
 echo ""
 youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --yes-playlist -o "$LOCATION" $URL
 COMPLETE
@@ -170,10 +170,53 @@ echo -n "> "
 read URL
 clear
 DOWNLOADING
-echo "Download location = $LOCATE"
+echo "Download location = $LOCATION"
 echo ""
 youtube-dl -f bestvideo[ext=mp4]+bestaudio --external-downloader aria2c --no-playlist -o "$LOCATION" $URL
 COMPLETE
+}
+
+Download_Location() {
+TOP
+echo "#               You have chosen to change the download location.               #"
+echo "#                                                                              #"
+echo "#                                                                              #"
+echo "#                   Enter the path you wish to download to.                    #"
+echo "#                                                                              #"
+echo "#              See documentation of youtube-dl for correct syntax.             #"
+BOTTOM
+echo ""
+echo "Default :"
+echo "$LOCATE"
+echo "Current :"
+echo "$LOCATION"
+echo -n "> "
+read LOCATION
+Advanced
+}
+
+Advanced() {
+TOP
+echo "#                                                                              #"
+echo "#                        You are now in the advanced menu.                     #"
+echo "#                                                                              #"
+echo "#                                                                              #"
+echo "#                           [C]hange download location                         #"
+echo "#                                  [M]ain menu                                 #"
+BOTTOM
+echo ""
+echo ""
+echo ""
+echo -n "> "
+read opt
+case $opt in
+	[Cc]* ) 
+	Download_Location
+	;;
+	[Mm]* )
+	Main
+	;;
+esac
 }
 
 Main() {
@@ -183,7 +226,7 @@ echo "#             Do you want to download a playlist or a single video?       
 echo "#                                                                              #"
 echo "#                                                                              #"
 echo "#                            [P]laylist  /  [S]ingle                           #"
-echo "#                                                                              #"
+echo "#                                   [A]dvanced                                 #"
 BOTTOM
 echo ""
 echo ""
@@ -196,6 +239,9 @@ case $opt in
 	;;
 	[Ss]* )
 	Single
+	;;
+	[Aa]* )
+	Advanced
 	;;
 esac
 }
